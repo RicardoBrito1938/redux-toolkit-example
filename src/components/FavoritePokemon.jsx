@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { changePokemonName } from "../feature/pokemonName";
 import { useGetPokemonByNameQuery } from "../services/pokemon";
 
 export const FavoritePokemon = () => {
-  const dispatch = useDispatch();
   const [favoritePokemon, setFavoritePokemon] = useState("");
 
-  const { data, error, isLoading } = useGetPokemonByNameQuery(favoritePokemon);
+  const { data } = useGetPokemonByNameQuery(favoritePokemon);
 
   return (
     <div>
