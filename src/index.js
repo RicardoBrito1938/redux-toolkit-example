@@ -6,12 +6,21 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import userReducer from "./feature/user";
 import themeReducer from "./feature/theme";
+import pokemonNameReducer from "./feature/pokemonName";
+
+import { pokemonApi } from "./services/pokemon";
+import { githubAPI } from "./services/githubUser";
 
 const store = configureStore({
   reducer: {
     user: userReducer,
-    theme: themeReducer
-  }
+    theme: themeReducer,
+    pokemonName: pokemonNameReducer,
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
+    [githubAPI.reducerPath]: githubAPI.reducer
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat([pokemonApi.middleware, githubAPI.middleware])
 });
 
 ReactDOM.render(
