@@ -13,7 +13,7 @@ export const FavoritePokemon = () => {
         type="text"
         onChange={event => setFavoritePokemon(event.target.value)}
       />
-      <img src={data?.sprites?.front_default} alt={data.id} />
+      <img src={data?.sprites?.front_default} alt={data?.id} />
     </div>
   );
 };

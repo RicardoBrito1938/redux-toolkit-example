@@ -14,7 +14,11 @@ export const Profile = () => {
       {isLoading && <h1>Loading...</h1>}
       {data && (
         <>
-          <img src={data.avatar_url} alt={data.id} />
+          <img
+            style={{ width: 300, borderRadius: "50% " }}
+            src={data.avatar_url}
+            alt={data.id}
+          />
           <h1>Profile Page</h1>
           <p>Name: {user.name} </p>
           <p>Age: {user.age} </p>
